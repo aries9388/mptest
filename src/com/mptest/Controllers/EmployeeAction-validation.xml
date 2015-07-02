@@ -1,0 +1,10 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+  <field name="phoneNumber">
+      <field-validator type="regex">
+          <param name="regex">\d{3}-\d{3}-\d{4}|\d{10}</param>
+          <message>Phone Number is not valid</message>
+      </field-validator>
+  </field>
+</validators>

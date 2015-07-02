@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="table" extends="struts-default">
+
+		<action name="showTable" class="com.mptest.Controllers.EmployeeAction">
+			<result name="success">/EmployeeTable.jsp</result>
+		</action>
+		
+		<action name="*" class="com.mptest.Controllers.EmployeeAction" method="{1}">
+			<result name="success" type="redirectAction">showTable</result>
+			<result name="search">/EmployeeTable.jsp</result>
+			<result name="create">/EmployeeForm.jsp</result>
+			<result name="update">/EmployeeForm.jsp</result>
+			<result name="input">/EmployeeForm.jsp</result>
+		</action>
+
+	</package>
+	
+	<package name="JsonResult" extends="json-default">
+		
+		<action name="getmanagers" class="com.mptest.Controllers.JsonAction" method="getManagers" >
+			<result type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</action>
+		
+		<action name="getemployees" class="com.mptest.Controllers.EmployeeAction" >
+			<result type="json">
+				<param name="root">arrayEmployee</param>
+			</result>
+		</action>
+	
+	</package>
+	
+</struts>
